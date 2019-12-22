@@ -17,6 +17,10 @@
         <asp:Label ID="lblHyperlink" runat="server"><b>Go To</b></asp:Label> 
         <br />
         <a id="hyperlinkTest" href="Test.aspx" runat="server">My Test Page</a>
+        <br />
+        <br />
+        <asp:Label ID="lblStatus" runat="server">Hello, <b>Guest</b>. Please login first</asp:Label>  
+
     </form>
 </body>
 </html>

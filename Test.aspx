@@ -13,12 +13,14 @@
 </head>
 <body>
     <form id="form1" runat="server">   
+
         <a id="hyperlinkHome" href="Default.aspx" runat="server"><b>< Go back</b></a>
         <br />
         <br />
         <asp:Label ID="lblDescTitle" runat="server"><b>Test Report</b></asp:Label>    
         <br />  
-        <asp:Label ID="lblDesc" runat="server"></asp:Label>      
+        <asp:Label ID="lblDesc" runat="server"></asp:Label>    
+        
     </form>
 </body>
 </html>
