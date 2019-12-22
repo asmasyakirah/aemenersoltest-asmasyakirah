@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Test.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Async="true" Language="C#" AutoEventWireup="true" CodeFile="Test.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -13,7 +13,12 @@
 </head>
 <body>
     <form id="form1" runat="server">   
-    <asp:Label ID="lblDesc" runat="server">lblDesc</asp:Label>      
+        <a id="hyperlinkHome" href="Default.aspx" runat="server"><b>< Go back</b></a>
+        <br />
+        <br />
+        <asp:Label ID="lblDescTitle" runat="server"><b>Test Report</b></asp:Label>    
+        <br />  
+        <asp:Label ID="lblDesc" runat="server"></asp:Label>      
     </form>
 </body>
 </html>
