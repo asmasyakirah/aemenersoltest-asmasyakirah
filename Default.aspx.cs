@@ -46,10 +46,13 @@ public partial class _Default : System.Web.UI.Page
         // Make sure user is logged in to access other features
         if (Session["username"] != null && Session["token"] != null)
         {
-            myUsername = Session["username"].ToString();
-            myToken = Session["token"].ToString();
+            //myUsername = Session["username"].ToString();
+            //myToken = Session["token"].ToString();
 
-            lblUser.Text = "You are logged in as <b>" + myUsername + "</b> <a id=\"hyperlinkLogout\" href=\"Login.aspx\">Logout</a>";
+            //lblUser.Text = "You are logged in as <b>" + myUsername + "</b> <a id=\"hyperlinkLogout\" href=\"Login.aspx\">Logout</a>";
+            
+            // Redirect to Dashboard page
+            Response.Redirect("Dashboard.aspx", true);
         }
         // Else, redirect to Login page
         else
