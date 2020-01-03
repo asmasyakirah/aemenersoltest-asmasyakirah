@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Web.Security;
+using System.Web.UI.WebControls;
 
 public class Dashboard
 {
@@ -46,7 +47,10 @@ public partial class _Default : System.Web.UI.Page
             myUsername = Session["username"].ToString();
             myToken = Session["token"].ToString();
 
-            GetDashboard();
+            if (!this.IsPostBack)
+            {
+                GetDashboard();
+            }
         }
         // Else, redirect to Login page
         else
@@ -75,6 +79,34 @@ public partial class _Default : System.Web.UI.Page
             // Deserialize responsebody JSON in string to Employee (array) object
             Dashboard dashboard = Newtonsoft.Json.JsonConvert.DeserializeObject<Dashboard>(responseBody);
 
+            if(dashboard.success==true)
+            {
+                // Show success message
+                //lblStatus.Text += "<br>SUCCESS" + dashboard.tableUsers.Length;
+
+                //Building an HTML string.
+                StringBuilder html = new StringBuilder();
+
+                int no = 1;
+                foreach (Table t in dashboard.tableUsers)
+                {
+                    html.Append("<tr>" +
+                        "<th scope=\"row\">" + no + "</th>" +
+                        "<td>" + t.firstName + "</td>" +
+                        "<td>" + t.lastName + "</td>" +
+                        "<td>" + t.userName + "</td>" +
+                        "</tr>");
+                    //phTable.Controls.Add(new Literal { Text = html.ToString() });
+                    tblUser.InnerHtml = html.ToString();
+                    no++;
+                }
+            }
+            else
+            {
+                // Show success message
+                //lblStatus.Text += "<br>ERROR";
+            }
+
             //foreach (Platform p in platform)
             //{
             //    lblStatus.Text += "<br>" + p.UniqueName;
@@ -87,14 +119,11 @@ public partial class _Default : System.Web.UI.Page
             //        }
             //    }
             //}
-
-            // Show success message
-            lblStatus.Text += "<br>SUCCESS";
         }
         else
         {
             // Show failed message
-            lblStatus.Text = "Synchronization from API to localDB failed";
+            //lblStatus.Text = "Synchronization from API to localDB failed";
             //lblStatus.Text = "FAILED<br>"+response.ToString();
         }
     }
