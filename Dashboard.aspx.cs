@@ -79,26 +79,61 @@ public partial class _Default : System.Web.UI.Page
             // Deserialize responsebody JSON in string to Employee (array) object
             Dashboard dashboard = Newtonsoft.Json.JsonConvert.DeserializeObject<Dashboard>(responseBody);
 
-            if(dashboard.success==true)
+            if (dashboard.success == true)
             {
                 // Show success message
                 //lblStatus.Text += "<br>SUCCESS" + dashboard.tableUsers.Length;
 
-                //Building an HTML string.
-                StringBuilder html = new StringBuilder();
+                ////Building an HTML string.
+                //StringBuilder html1 = new StringBuilder();
 
-                int no = 1;
+                //int no1 = 1;
+                //foreach (Chart c1 in dashboard.chartDonut)
+                //{
+                //    html1.Append("<tr>" +
+                //        "<th scope=\"row\">" + no1 + "</th>" +
+                //        "<td>" + c1.name + "</td>" +
+                //        "<td>" + c1.value + "</td>" +
+                //        "<td></td>" +
+                //        "</tr>");
+                //    //phTable.Controls.Add(new Literal { Text = html.ToString() });
+                //    chartDonutScript.InnerHtml = html1.ToString();
+                //    no1++;
+                //}
+
+                ////Building an HTML string.
+                //StringBuilder html2 = new StringBuilder();
+
+                //int no2 = 1;
+                //foreach (Chart c2 in dashboard.chartBar)
+                //{
+                //    html2.Append("<tr>" +
+                //        "<th scope=\"row\">" + no2 + "</th>" +
+                //        "<td>" + c2.name + "</td>" +
+                //        "<td>" + c2.value + "</td>" +
+                //        "<td></td>" +
+                //        "</tr>");
+                //    //phTable.Controls.Add(new Literal { Text = html.ToString() });
+                //    chartBarScript.InnerHtml = html2.ToString();
+                //    no2++;
+                //}
+
+                //Building an HTML string.
+                StringBuilder html3 = new StringBuilder();
+
+                int no3 = 1;
                 foreach (Table t in dashboard.tableUsers)
                 {
-                    html.Append("<tr>" +
-                        "<th scope=\"row\">" + no + "</th>" +
+                    html3.Append("<tr>" +
+                        "<th scope=\"row\">" + no3 + "</th>" +
                         "<td>" + t.firstName + "</td>" +
                         "<td>" + t.lastName + "</td>" +
                         "<td>" + t.userName + "</td>" +
                         "</tr>");
                     //phTable.Controls.Add(new Literal { Text = html.ToString() });
-                    tblUser.InnerHtml = html.ToString();
-                    no++;
+                    tblUser.InnerHtml = html3.ToString();
+                    no3++;
+                    //}
                 }
             }
             else
