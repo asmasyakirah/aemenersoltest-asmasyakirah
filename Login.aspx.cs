@@ -62,7 +62,7 @@ public partial class _Default : System.Web.UI.Page
             Session["token"] = myToken;
 
             // Show success message
-            lblStatus.Text = "Successfully logged in!";
+            //lblStatus.Text = "Successfully logged in!";
 
             // Redirect to Home page
             FormsAuthentication.RedirectFromLoginPage(myUsername, true);
@@ -70,7 +70,7 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             // Show failed message
-            lblStatus.Text = "Wrong Username/Password";
+            //lblStatus.Text = "Wrong Username/Password";
         }
     }
 
@@ -82,7 +82,7 @@ public partial class _Default : System.Web.UI.Page
         // Check if field is empty
         if(myUsername==null||myPassword==null)
         {
-            lblStatus.Text = "Please key-in both Username/Password fields";
+            //lblStatus.Text = "Please key-in both Username/Password fields";
         }
         else
         {
